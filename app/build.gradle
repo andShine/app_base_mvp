@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resConfigs "zh"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // 配置lambda
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // 设置apk打包命名
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.applicationId}_${variant.versionName}_${variant.versionCode}.apk"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "com.android.support:exifinterface:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //fragmentation
+    implementation 'me.yokeyword:fragmentation:1.3.6'
+    implementation 'me.yokeyword:fragmentation-swipeback:1.3.6'
+    implementation 'me.yokeyword:eventbus-activity-scope:1.1.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //SmartRefreshLayout
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+    //other ui
+    implementation 'com.blankj:utilcode:1.22.0'
+    implementation('com.qmuiteam:qmui:1.1.10') {
+        transitive = false
+    }
+    implementation('com.alibaba.android:vlayout:1.2.18@aar') {
+        transitive = true
+    }
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //rxjava2
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    //retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    //fastjson
+    //noinspection GradleDependency
+    implementation 'com.alibaba:fastjson:1.1.70.android'
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //AutoDispose
+    //noinspection GradleDependency
+    implementation 'com.uber.autodispose:autodispose:1.0.0-RC3'
+    //noinspection GradleDependency
+    implementation 'com.uber.autodispose:autodispose-android:1.0.0-RC3'
+    //noinspection GradleDependency
+    implementation 'com.uber.autodispose:autodispose-android-archcomponents:1.0.0-RC3'
+}
