@@ -2,7 +2,7 @@ package com.tourong.app.entity;
 
 import java.util.ArrayList;
 
-public class ActicleEntity {
+public class ArticleEntity {
     public String name;
     public ArrayList<String> list;
 
