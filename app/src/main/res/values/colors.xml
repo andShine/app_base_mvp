@@ -8,4 +8,8 @@
     <color name="colorWindowBackground">#F0F2F5</color>
     <color name="topbar_color">#1F336B</color>
     <color name="topbar_color_black">#212832</color>
+
+    <color name="shape1">#5d8df7</color>
+    <color name="shape2">#5EB9F8</color>
+    <color name="shape3">#5CC2F8</color>
 </resources>

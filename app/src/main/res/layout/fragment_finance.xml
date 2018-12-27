@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/material_white">
+        android:background="@drawable/shape">
 
         <TextView
             android:id="@+id/title"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="理财"
-            android:textColor="@color/topbar_color"
+            android:textColor="@color/material_white"
             android:textSize="15sp" />
     </android.support.v7.widget.Toolbar>
 
