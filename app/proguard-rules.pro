@@ -116,6 +116,7 @@
 
 #实体类
 -keep class com.tourong.app.entity.** {*;}
+-keep class com.tourong.app.net.** {*;}
 
 # fastjson
 -keepattributes Signature
@@ -180,3 +181,5 @@
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+
+-keep class com.gyf.barlibrary.* {*;}

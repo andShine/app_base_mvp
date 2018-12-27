@@ -94,4 +94,5 @@ dependencies {
     //noinspection GradleDependency
     implementation 'com.uber.autodispose:autodispose-android-archcomponents:1.0.0-RC3'
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    implementation 'com.gyf.immersionbar:immersionbar:2.3.3-beta15'
 }

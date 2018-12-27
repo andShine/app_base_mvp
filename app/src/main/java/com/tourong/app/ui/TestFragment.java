@@ -2,13 +2,13 @@ package com.tourong.app.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.blankj.utilcode.util.LogUtils;
-import com.qmuiteam.qmui.widget.QMUITopBar;
 import com.tourong.app.R;
-import com.tourong.app.base.BaseSwipeFragment;
+import com.tourong.app.base.BaseToolbarSwipeFragment;
 import com.tourong.app.net.NetWorkManager;
 import com.tourong.app.net.exception.ApiException;
 import com.tourong.app.net.response.ResponseTransformer;
@@ -16,16 +16,16 @@ import com.tourong.app.net.schedulers.SchedulerProvider;
 import com.uber.autodispose.AutoDispose;
 import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
 
-public class TestFragment extends BaseSwipeFragment {
+public class TestFragment extends BaseToolbarSwipeFragment {
 
-    @BindView(R.id.topbar)
-    QMUITopBar topBar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        topBar.addLeftBackImageButton().setOnClickListener(v -> pop());
-        topBar.setTitle("测试");
+        toolbar.setTitle("测试");
+        toolbar.setNavigationOnClickListener(v -> pop());
     }
 
     @Override

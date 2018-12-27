@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.qmuiteam.qmui.widget.QMUITopBar
-        android:id="@+id/topbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/qmui_topbar_height" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/material_white"
+        app:navigationIcon="@drawable/ic_topbar_back_custom"
+        app:titleTextAppearance="@style/ToolbarTitle" />
 
     <TextView
         android:id="@+id/tvTest"

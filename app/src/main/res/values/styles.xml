@@ -14,8 +14,10 @@
         <item name="colorPrimaryDark">@color/material_white</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorWindowBackground</item>
+        <item name="actionBarSize">@dimen/app_topbar_height</item>
     </style>
 
+    <!--弃用这个TopBar，使用自带Toolbar-->
     <style name="QDTopBarWhite" parent="QMUI.TopBar">
         <!--topbar的背景颜色(白色主题)-->
         <item name="qmui_topbar_bg_color">@color/material_white</item>
@@ -26,4 +28,8 @@
         <item name="qmui_topbar_text_btn_text_size">15sp</item>
     </style>
 
+    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@color/topbar_color</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

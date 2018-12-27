@@ -1,7 +1,7 @@
 package com.tourong.app.ui
 
 import android.os.Bundle
-import com.qmuiteam.qmui.util.QMUIStatusBarHelper
+import com.gyf.barlibrary.ImmersionBar
 import com.tourong.app.R
 import com.tourong.app.base.BaseActivity
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator
@@ -16,11 +16,15 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        QMUIStatusBarHelper.setStatusBarLightMode(this)
-
+        ImmersionBar.with(this).statusBarDarkFont(true).init()
         if (findFragment(MainFragment::class.java) == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance())
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ImmersionBar.with(this).destroy()
     }
 
     override fun onBackPressedSupport() {

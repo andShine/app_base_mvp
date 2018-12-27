@@ -28,7 +28,7 @@ public class AccountFragment extends BaseMvpFragment<AccountPresenter> implement
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_finance;
+        return R.layout.fragment_account;
     }
 
     @Override

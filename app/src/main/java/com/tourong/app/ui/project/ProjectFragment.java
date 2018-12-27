@@ -3,12 +3,12 @@ package com.tourong.app.ui.project;
 import android.os.Bundle;
 import android.view.View;
 import com.tourong.app.R;
-import com.tourong.app.base.BaseFragment;
+import com.tourong.app.base.BaseToolbarFragment;
 
 /**
  * 主页-项目库
  */
-public class ProjectFragment extends BaseFragment {
+public class ProjectFragment extends BaseToolbarFragment {
 
     public static ProjectFragment newInstance() {
         ProjectFragment fragment = new ProjectFragment();

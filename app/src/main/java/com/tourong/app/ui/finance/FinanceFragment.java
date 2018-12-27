@@ -3,12 +3,12 @@ package com.tourong.app.ui.finance;
 import android.os.Bundle;
 import android.view.View;
 import com.tourong.app.R;
-import com.tourong.app.base.BaseFragment;
+import com.tourong.app.base.BaseToolbarFragment;
 
 /**
  * 主页-理财
  */
-public class FinanceFragment extends BaseFragment {
+public class FinanceFragment extends BaseToolbarFragment {
 
     public static FinanceFragment newInstance() {
         FinanceFragment fragment = new FinanceFragment();
