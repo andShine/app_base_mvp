@@ -3,6 +3,7 @@ package com.tourong.app;
 import android.app.Application;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
+import com.qw.soul.permission.SoulPermission;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
@@ -42,7 +43,7 @@ public class App extends Application {
                 .stackViewMode(Fragmentation.BUBBLE)
                 // 开发环境：true时，遇到异常："Can not perform this action after onSaveInstanceState!"时，抛出，并Crash;
                 // 生产环境：false时，不抛出，不会Crash，会捕获，可以在handleException()里监听到
-                .debug(AppConfig.DEBUG) // 实际场景建议.debug(AppConfig.DEBUG)
+                .debug(BuildConfig.DEBUG) // 实际场景建议.debug(AppConfig.DEBUG)
                 // 生产环境时，捕获上述异常（避免crash），会捕获
                 // 建议在回调处上传下面异常到崩溃监控服务器
                 .handleException(new ExceptionHandler() {
@@ -55,7 +56,8 @@ public class App extends Application {
                 .install();
 
         Utils.init(this);
-        LogUtils.getConfig().setLogSwitch(AppConfig.DEBUG);
+        LogUtils.getConfig().setLogSwitch(BuildConfig.DEBUG);
         NetWorkManager.getInstance().init();
+        SoulPermission.init(this);
     }
 }

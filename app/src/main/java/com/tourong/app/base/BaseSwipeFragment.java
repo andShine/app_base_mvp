@@ -1,5 +1,6 @@
 package com.tourong.app.base;
 
+import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,9 +10,12 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.tourong.app.event.StartBrotherEvent;
-import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.AutoDisposeConverter;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
+import org.greenrobot.eventbus.EventBus;
 
 public abstract class BaseSwipeFragment extends SwipeBackFragment {
 
@@ -30,7 +34,12 @@ public abstract class BaseSwipeFragment extends SwipeBackFragment {
      * MainFragment中跳转专用
      */
     public void startFragment(SupportFragment fragment) {
-        EventBusActivityScope.getDefault(_mActivity).post(new StartBrotherEvent(fragment));
+        EventBus.getDefault().post(new StartBrotherEvent(fragment));
+    }
+
+    public <T> AutoDisposeConverter<T> bindAutoDispose() {
+        return AutoDispose.autoDisposable(AndroidLifecycleScopeProvider
+                .from(this, Lifecycle.Event.ON_DESTROY));
     }
 
     @Override

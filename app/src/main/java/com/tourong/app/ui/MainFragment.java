@@ -16,8 +16,8 @@ import com.tourong.app.ui.quotation.QuotationFragment;
 import com.tourong.app.ui.telegram.TelegramFragment;
 import com.tourong.app.widget.BottomBar;
 import com.tourong.app.widget.BottomBarTab;
-import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
 import me.yokeyword.fragmentation.SupportFragment;
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 public class MainFragment extends BaseFragment {
@@ -68,10 +68,10 @@ public class MainFragment extends BaseFragment {
             @Override
             public void onTabReselected(int position) {
                 // 主要为了交互: 重选tab 比如：如果列表不在顶部则移动到顶部,如果已经在顶部,则刷新
-                EventBusActivityScope.getDefault(_mActivity).post(new TabSelectedEvent(position));
+                EventBus.getDefault().post(new TabSelectedEvent(position));
             }
         });
-        EventBusActivityScope.getDefault(_mActivity).register(this);
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -128,6 +128,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBusActivityScope.getDefault(_mActivity).unregister(this);
+        EventBus.getDefault().unregister(this);
     }
 }
