@@ -2,6 +2,7 @@ package com.tourong.app.ui.finance;
 
 import android.os.Bundle;
 import android.view.View;
+import com.gyf.immersionbar.ImmersionBar;
 import com.tourong.app.R;
 import com.tourong.app.base.BaseToolbarFragment;
 
@@ -25,5 +26,16 @@ public class FinanceFragment extends BaseToolbarFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_finance;
+    }
+
+    @Override
+    protected int getTitleBar() {
+        return R.id.toolbar;
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        ImmersionBar.with(_mActivity).statusBarDarkFont(false).init();
     }
 }

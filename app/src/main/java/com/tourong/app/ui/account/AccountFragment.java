@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import com.blankj.utilcode.util.LogUtils;
+import com.gyf.immersionbar.ImmersionBar;
 import com.tourong.app.R;
 import com.tourong.app.base.BaseMvpFragment;
 import com.tourong.app.entity.AccountEntity;
@@ -36,6 +37,12 @@ public class AccountFragment extends BaseMvpFragment<AccountPresenter> implement
         super.onLazyInitView(savedInstanceState);
         // 请求账户信息
         mPresenter.getAccountInfo();
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        ImmersionBar.with(_mActivity).statusBarDarkFont(false).init();
     }
 
     @Override

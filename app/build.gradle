@@ -96,5 +96,5 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     implementation 'com.qw:soulpermission:1.1.6'
-    implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta04'
 }

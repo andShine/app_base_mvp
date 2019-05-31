@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.blankj.utilcode.util.LogUtils;
+import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.tourong.app.R;
 import com.tourong.app.base.BaseToolbarSwipeFragment;
@@ -33,6 +34,11 @@ public class TestFragment extends BaseToolbarSwipeFragment {
         super.onViewCreated(view, savedInstanceState);
         toolbar.setTitle("测试");
         toolbar.setNavigationOnClickListener(v -> pop());
+    }
+
+    @Override
+    protected int getTitleBar() {
+        return R.id.toolbar;
     }
 
     // 图片保存路径
@@ -75,5 +81,11 @@ public class TestFragment extends BaseToolbarSwipeFragment {
 
     public static TestFragment newInstance() {
         return new TestFragment();
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        ImmersionBar.with(_mActivity).statusBarDarkFont(true, 0.2f).init();
     }
 }

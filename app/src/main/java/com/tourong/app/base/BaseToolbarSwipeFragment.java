@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
-import com.gyf.barlibrary.ImmersionBar;
-import com.tourong.app.R;
+import com.gyf.immersionbar.ImmersionBar;
 
 public abstract class BaseToolbarSwipeFragment extends BaseSwipeFragment {
 
@@ -14,18 +13,11 @@ public abstract class BaseToolbarSwipeFragment extends BaseSwipeFragment {
         super.onViewCreated(view, savedInstanceState);
         View titleBar = view.findViewById(getTitleBar());
         ImmersionBar.setTitleBar(_mActivity, titleBar);
-        View statusBarView = view.findViewById(getStatusBarView());
-        ImmersionBar.setStatusBarView(_mActivity, statusBarView);
     }
 
     /**
      * @return 可以设置为自定义View，不能是RelativeLayout布局
      */
-    protected int getTitleBar() {
-        return R.id.toolbar;
-    }
+    protected abstract int getTitleBar();
 
-    protected int getStatusBarView() {
-        return 0;
-    }
 }

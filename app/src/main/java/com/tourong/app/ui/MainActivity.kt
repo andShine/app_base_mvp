@@ -1,7 +1,6 @@
 package com.tourong.app.ui
 
 import android.os.Bundle
-import com.gyf.barlibrary.ImmersionBar
 import com.tourong.app.R
 import com.tourong.app.base.BaseActivity
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator
@@ -16,7 +15,7 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ImmersionBar.with(this).statusBarDarkFont(true).init()
+        // ImmersionBar.with(this).statusBarDarkFont(true, 0.2f).init()
         if (findFragment(MainFragment::class.java) == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance())
         }
@@ -24,7 +23,6 @@ class MainActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        ImmersionBar.with(this).destroy()
     }
 
     override fun onBackPressedSupport() {
