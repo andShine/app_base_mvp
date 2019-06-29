@@ -183,3 +183,6 @@
 }
 
 -keep class com.gyf.barlibrary.* {*;}
+
+-keep class com.gyf.immersionbar.* {*;}
+-dontwarn com.gyf.immersionbar.**

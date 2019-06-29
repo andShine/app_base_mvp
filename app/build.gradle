@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-27'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-27'
     //other ui
-    implementation 'com.blankj:utilcode:1.23.7'
+    implementation 'com.blankj:utilcode:1.24.0'
     implementation('com.qmuiteam:qmui:1.2.0') {
         transitive = false
     }
@@ -96,5 +96,5 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     implementation 'com.qw:soulpermission:1.1.6'
-    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta04'
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
 }

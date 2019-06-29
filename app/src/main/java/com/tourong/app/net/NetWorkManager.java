@@ -48,7 +48,7 @@ public class NetWorkManager {
         ClearableCookieJar cookieJar =
                 new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.getInstance()));
 
-        //打印网络请求日志
+        // 打印网络请求日志
         LoggingInterceptor httpLoggingInterceptor = new LoggingInterceptor.Builder()
                 .loggable(BuildConfig.DEBUG)
                 .setLevel(Level.BASIC)

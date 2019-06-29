@@ -11,8 +11,10 @@ public abstract class BaseToolbarSwipeFragment extends BaseSwipeFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        View titleBar = view.findViewById(getTitleBar());
-        ImmersionBar.setTitleBar(_mActivity, titleBar);
+        if (0 != getTitleBar()) {
+            View titleBar = view.findViewById(getTitleBar());
+            ImmersionBar.setTitleBar(_mActivity, titleBar);
+        }
     }
 
     /**
